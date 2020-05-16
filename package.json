@@ -1,0 +1,18 @@
+{
+  "name": "ag-poker",
+  "version": "1.0.0",
+  "description": "Poker game instance",
+  "repository": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.0.0-alpha.8",
+    "pug": "^2.0.4",
+    "socket.io": "^2.3.0"
+  }
+}
