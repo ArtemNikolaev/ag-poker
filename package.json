@@ -1,6 +1,6 @@
 {
   "name": "ag-poker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Poker game instance",
   "repository": "https://github.com/ArtemNikolaev/ag-poker",
   "main": "index.js",

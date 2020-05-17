@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2020-05-17
+## [v0.0.2] - 2020-05-17
+### Added
+- README.md
+
+## [v0.0.1] - 2020-05-17
 ### Added
 - changelog
 - express, pug, socket.io
@@ -15,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - repository field
 - npm script named start to run easy server
 
-[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/ArtemNikolaev/ag-poker/compare/c07530c21e64f4eb402614144fdc8b0c53dfe086...v0.0.1
+[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.2...HEAD
+[v0.0.2]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.1...v0.0.2
+[v0.0.1]: https://github.com/ArtemNikolaev/ag-poker/compare/c07530c21e64f4eb402614144fdc8b0c53dfe086...v0.0.1
