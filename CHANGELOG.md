@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.1.0] - 2020-05-18
+### Added
+- noop data model implementation
+- set `type` field in package.json as module
+### Changed
+- js files rewrited to es6 modules manner
+- moved routing to pages file
+- moved socket functionality to socket file
+- moved express to separate file
+
 ## [v0.0.2] - 2020-05-17
 ### Added
 - README.md
@@ -19,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - repository field
 - npm script named start to run easy server
 
-[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.0...HEAD
+[v0.1.0]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.2...v0.1.0
 [v0.0.2]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/ArtemNikolaev/ag-poker/compare/c07530c21e64f4eb402614144fdc8b0c53dfe086...v0.0.1

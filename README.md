@@ -1,5 +1,5 @@
 # Gamedev Soldier
-## v0.0.2
+## v0.1.0
 
 [Changelog](CHANGELOG.md)
 
