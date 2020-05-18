@@ -1,5 +1,5 @@
-# Gamedev Soldier
-## v0.1.0
+# AG-Poker
+## v0.1.1
 
 [Changelog](CHANGELOG.md)
 

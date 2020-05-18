@@ -1,10 +1,10 @@
 {
   "name": "ag-poker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Poker game instance",
   "repository": "https://github.com/ArtemNikolaev/ag-poker",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

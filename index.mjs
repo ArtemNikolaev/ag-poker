@@ -1,7 +1,7 @@
 import http from 'http';
 
-import createApp from "./src/server.js";
-import createSocket from "./src/socket.js";
+import createApp from "./src/server.mjs";
+import createSocket from "./src/socket.mjs";
 
 const app = createApp();
 const httpServer = http.createServer(app);

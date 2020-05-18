@@ -1,7 +1,7 @@
 import express from "express";
 import pug from "pug";
-import data from "./data.model.js";
-import { config, error404, game } from "./pages.js";
+import data from "./data.model.mjs";
+import { config, error404, game } from "./pages.mjs";
 
 export default function createApp() {
   const app = express();

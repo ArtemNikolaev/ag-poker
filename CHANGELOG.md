@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.1.1] - 2020-0518
+### Changed
+- rename modules to *.mjs
+- change title in readme
+
 ## [v0.1.0] - 2020-05-18
 ### Added
 - noop data model implementation
@@ -29,7 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - repository field
 - npm script named start to run easy server
 
-[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.1...HEAD
+[v0.1.1]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.2...v0.1.0
 [v0.0.2]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/ArtemNikolaev/ag-poker/compare/c07530c21e64f4eb402614144fdc8b0c53dfe086...v0.0.1
