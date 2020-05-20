@@ -6,7 +6,7 @@ export default function createSocket(httpServer) {
 
   io.on('connection', (socket) => {
     console.log('a user connected: ', socket.id);
-    init(socket);
+    init(io, socket);
 
     socket.on('disconnect', () => {
       console.log('user disconnected');

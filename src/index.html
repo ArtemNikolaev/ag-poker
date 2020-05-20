@@ -24,7 +24,9 @@
       var socket = io();
 
       // <init>
-      socket.emit('init:token:req');
+      socket.on('connect', () => {
+        socket.emit('init:token:req');
+      })
       // </init>
 
 
