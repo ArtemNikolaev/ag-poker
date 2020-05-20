@@ -6,7 +6,8 @@
   "repository": "https://github.com/ArtemNikolaev/ag-poker",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.mjs",
+    "serve": "./node_modules/nodemon/bin/nodemon.js index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.0.0-alpha.8",
+    "jsonwebtoken": "^8.5.1",
     "pug": "^2.0.4",
     "socket.io": "^2.3.0"
   }
