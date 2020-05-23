@@ -1,9 +1,7 @@
 class Data {
   game = false;
 
-  constructor() {
-    console.log('Data initialized');
-  }
+  constructor() { }
 
   isGameExist() {
     return this.game;
