@@ -1,7 +1,7 @@
-import socketio from 'socket.io';
-import init from './events/init.events.mjs';
+const socketio = require('socket.io');
+const init = require('./events/init.events');
 
-export default function createSocket(httpServer) {
+module.exports = function createSocket(httpServer) {
   const io = socketio(httpServer);
 
   io.on('connection', (socket) => {

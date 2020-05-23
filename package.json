@@ -1,13 +1,12 @@
 {
   "name": "ag-poker",
-  "version": "0.1.1",
-  "type": "module",
+  "version": "0.2.0",
   "description": "Poker game instance",
   "repository": "https://github.com/ArtemNikolaev/ag-poker",
-  "main": "index.mjs",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.mjs",
-    "serve": "./node_modules/nodemon/bin/nodemon.js index.mjs",
+    "start": "node index.js",
+    "serve": "./node_modules/nodemon/bin/nodemon.js index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,7 +18,6 @@
   "dependencies": {
     "express": "^5.0.0-alpha.8",
     "jsonwebtoken": "^8.5.1",
-    "pug": "^2.0.4",
     "socket.io": "^2.3.0"
   }
 }

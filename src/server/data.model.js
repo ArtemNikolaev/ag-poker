@@ -10,4 +10,4 @@ class Data {
   }
 }
 
-export default new Data();
+module.exports = new Data();

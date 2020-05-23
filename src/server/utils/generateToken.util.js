@@ -1,7 +1,7 @@
-import crypto from 'crypto';
-import jwt from 'jsonwebtoken';
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
-export default function generateToken (id, cb) {
+module.exports = function generateToken (id, cb) {
   const payload = {
     id,
     timestamp: Date.now(),
