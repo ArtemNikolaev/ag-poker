@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- logger
+- logs for init.events
+
 ### Changed
 - promisify index.js logic
 - move logic from index.js to main.js in `server` folder
@@ -14,8 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - generateToken util
 - init event for generating token
 - back to commonJS, because Jest not working from the box with and i dont want to spend any time to fix it
-- remove pug(for now), also something not working from the box, will fix it later and back it to the project
 - add index page with working initialization functionality
+
+### Removed
+- pug(for now), something not working from the box, will fix it later and back it to the project
 
 ## [v0.1.1] - 2020-05-18
 ### Changed
