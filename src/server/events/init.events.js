@@ -2,35 +2,54 @@ const logger = require('../logger');
 const generateToken = require("../utils/generateToken.util");
 
 module.exports = function init(io, socket) {
-  logger.silly("init:events - initialize socket event for registration")
+  const place = 'init';
+  logger.silly({
+    place,
+    msg: "initialize socket event for registration"
+  })
 
   socket.on('init:token:req', (token) => {
+    const place = 'init:token:req';
     logger.silly({
-      msg: 'init:token:req - handle event',
+      place,
+      msg: 'handle event',
       payload: { token },
     });
 
     if (!token) {
-      logger.silly('init:token:req - token no exists, so generating new token');
+      logger.silly({
+        place,
+        msg: 'token no exists, so generating new token'
+      });
 
       generateToken(socket.id, function(err, token) {
-        logger.silly('generateToken:cb - runned');
+        const place = 'generateToken:cb';
+
+        logger.silly({
+          place,
+          msg: 'runned',
+        });
         if (err) return logger.error(err);
 
         logger.debug({
-          msg: 'generateToken:cb - token succesfully generated',
+          place,
+          msg: 'token succesfully generated',
           payload: { token },
         });
 
         logger.silly({
-          msg: 'generateToken:cb - emit `init:token:res` with generated token',
+          place,
+          msg: 'emit `init:token:res` with generated token',
           payload: { token },
         });
 
         io.to(socket.id).emit('init:token:res', token);
       });
     } else {
-      logger.silly('init:token:req - token exists, so just run connection logic');
+      logger.silly({
+        place,
+        msg: 'token exists, so just run connection logic'
+      });
     }
   });
 }
