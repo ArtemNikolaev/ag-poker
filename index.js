@@ -3,10 +3,10 @@ const http = require('http');
 const createApp = require("./src/server/server");
 const createSocket = require("./src/server/socket");
 
-const app = createApp();
-const httpServer = http.createServer(app);
-createSocket(httpServer);
+createApp()
+  .then(app => Promise.resolve(http.createServer(app)))
+  .then(httpServer => {
+    createSocket(httpServer);
 
-httpServer.listen(3000, () => {
-  console.log('listening on *:3000');
-});
+    httpServer.listen(3000, () => console.log('listening on *: 3000'));
+  });
