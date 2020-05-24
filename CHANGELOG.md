@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - logs for init.events
 - logs for generateToken
 - show in logs url for run from parent system if runned in wsl
+- initialization page and styles
 
 ### Changed
 - promisify index.js logic
