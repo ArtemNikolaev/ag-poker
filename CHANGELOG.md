@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - logger
 - logs for init.events
 - logs for generateToken
+- show in logs url for run from parent system if runned in wsl
 
 ### Changed
 - promisify index.js logic
 - move logic from index.js to main.js in `server` folder
+- move static js files to special 
 
 ## [v0.2.0] - 2020-05-23
 ### Added

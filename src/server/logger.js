@@ -9,7 +9,7 @@ const logger = createLogger({
     }),
     format.printf((info) =>
       info.timestamp + ' - ' +
-      info.level +
+      info.level + ' ' +
       ((typeof info.message === 'string') ?
         info.message :
         '\n' + JSON.stringify(info.message, null, 2))),
