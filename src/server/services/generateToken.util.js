@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const logger = require('../logger');
+const logger = require('./logger');
 
 const place = 'generateToken';
 

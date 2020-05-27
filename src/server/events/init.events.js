@@ -1,4 +1,4 @@
-const logger = require('../logger');
+const logger = require('../services/logger');
 const generateToken = require("../services/generateToken.util");
 
 module.exports = function init(io, socket) {

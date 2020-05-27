@@ -1,7 +1,7 @@
 const http = require('http');
 const createApp = require("./server");
 const createSocket = require("./socket");
-const logger = require('./logger');
+const logger = require('./services/logger');
 const ifaces = require('os').networkInterfaces();
 
 // todo: move to config
