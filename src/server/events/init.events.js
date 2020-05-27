@@ -8,7 +8,7 @@ module.exports = function init(io, socket) {
     msg: "initialize socket event for registration"
   })
 
-  socket.on('init:token:req', (token) => {
+  socket.on('init:token:request', (token) => {
     const place = 'init:token:req';
     logger.silly({
       place,
@@ -43,7 +43,7 @@ module.exports = function init(io, socket) {
           payload: { token },
         });
 
-        io.to(socket.id).emit('init:token:res', token);
+        io.to(socket.id).emit('init:token:response', token);
       });
     } else {
       logger.silly({
