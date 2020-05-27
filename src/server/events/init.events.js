@@ -1,5 +1,5 @@
 const logger = require('../logger');
-const generateToken = require("../utils/generateToken.util");
+const generateToken = require("../services/generateToken.util");
 
 module.exports = function init(io, socket) {
   const place = 'init';
