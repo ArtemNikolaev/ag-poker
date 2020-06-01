@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [v0.3.0] - 2020-05-23
 ### Added
 - logger
 - logs for init.events
@@ -55,7 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - repository field
 - npm script named start to run easy server
 
-[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.1...v0.2.0
 [v0.1.1]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/ArtemNikolaev/ag-poker/compare/v0.0.2...v0.1.0
