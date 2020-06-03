@@ -2,6 +2,7 @@ const socketio = require('socket.io');
 
 const logger = require('./services/logger');
 const store = require('./modules/players');
+const game = require('./modules/game');
 
 module.exports = function createSocket(httpServer) {
   const io = socketio(httpServer);
@@ -17,9 +18,11 @@ module.exports = function createSocket(httpServer) {
     });
   });
 
-  store.on('new:player', (result) => {
-    io.to(result.id).emit('status:player', result.data);
+  store.on('new:player', (id) => {
+    io.to(id).emit('status:player', id);
   })
 
   store.on('new:spectator', (id) => io.to(id).emit('status:spectator'));
+
+  game.on('players', (players) => io.emit('players', players));
 }

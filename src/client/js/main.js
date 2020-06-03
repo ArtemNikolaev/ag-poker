@@ -7,3 +7,7 @@ socket.on('status:player', (data) => {
 socket.on('status:spectator', () => {
   console.log('new spectator arrived');
 });
+
+socket.on('players', (data) => {
+  console.log(JSON.stringify(data, null, 4));
+});

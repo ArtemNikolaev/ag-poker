@@ -4,9 +4,8 @@ const logger = require('../services/logger');
 
 class Players extends EventEmitter {
   amount = 3;
-  money = 5000;
 
-  players = new Map();
+  players = new Set();
   spectators = new Set();
 
   setAmount(num) {
@@ -19,14 +18,6 @@ class Players extends EventEmitter {
     this._rearrange();
   }
 
-  setMoney(num) {
-    if (isNaN(num) || num < 0) {
-      return logger.error('Players.setAmount(num): num should be number bigger than 0');
-    }
-
-    this.money = num;
-  }
-
   add(id) {
     if (this.players.has(id) || this.spectators.has(id)) {
       return logger.error('Players.add(id): player or spectator with this id already exist');
@@ -35,26 +26,22 @@ class Players extends EventEmitter {
     if (this.players.size < this.amount) {
       logger.silly(`${id} added as player`);
 
-      const data = {
-        money: this.money,
-      };
 
-      this.players.set(id, data);
+      this.players.add(id);
 
-      this.emit('new:player', { id, data });
+      this.emit('new:player', id);
     } else {
       logger.silly(`${id} added as a spectator`);
       this.spectators.add(id);
 
       this.emit('new:spectator', id);
     }
-
-    this.emit('update:game');
   }
 
   remove(id) {
     if (this.players.has(id)) {
       this.players.delete(id);
+      this.emit('player:removed', id);
 
       logger.silly(`${id} was removed from plaeyrs`);
 
@@ -64,8 +51,6 @@ class Players extends EventEmitter {
 
       logger.silly(`${id} was removed from spectators`);
     }
-
-    this.emit('update:game');
   }
 
   _rearrange() {
