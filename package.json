@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "serve": "./node_modules/nodemon/bin/nodemon.js index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jest . --coverage"
   },
   "keywords": [
     "games",
@@ -20,5 +20,8 @@
     "jsonwebtoken": "^8.5.1",
     "socket.io": "^2.3.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }
