@@ -1,10 +1,35 @@
 const Deck = require('../deck.class');
+const deckInfo = require('../deck.json');
 
 describe('Deck class', () => {
   let deck;
 
   beforeEach(() => {
     deck = new Deck();
+  });
+
+  describe('_changeDeck', () => {
+    beforeEach(() => {
+      deck._newRound = jest.fn();
+    });
+
+    it('deck should be fresh', () => {
+      deck._changeDeck();
+
+      expect(deck.deck).toEqual(deckInfo.cards);
+    });
+
+    it('played should be empty', () => {
+      deck._changeDeck();
+
+      expect(deck.played.length).toBe(0);
+    });
+
+    it('should call _newRound()', () => {
+      deck._changeDeck();
+
+      expect(deck._newRound).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('_get()', () => {
@@ -93,8 +118,6 @@ describe('Deck class', () => {
   });
 
   it('getDeckInfo() should return deck', () => {
-    const deckInfo = require('../deck.json');
-
     expect(deck.getDeckInfo()).toEqual(deckInfo);
   });
 });

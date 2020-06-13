@@ -24,20 +24,20 @@ class Deck extends EventEmitter {
         }
     }*/
 
-    /*_newRound = () => {
-        if (this.played.length) {
+    _newRound = () => {
+        /*if (this.played.length) {
             this.deck.push(...this.played);
         }
 
-        this._shuffle();
-    }*/
+        this._shuffle();*/
+    }
 
-    /*_changeDeck = () => {
-        this.deck = deckInfo.deck;
+    _changeDeck = () => {
+        this.deck = deckInfo.cards;
         this.played.splice(0);
 
-        this.newGame();
-    }*/
+        this._newRound();
+    }
 
 
     _get = (amount = 1) => {
