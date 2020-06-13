@@ -5,7 +5,6 @@ describe('Deck class', () => {
 
   beforeEach(() => {
     deck = new Deck();
-
   });
 
   describe('_get()', () => {
@@ -57,6 +56,39 @@ describe('Deck class', () => {
       it('played should be correct', () => {
         expect(deck._get(n)).toEqual([1, 2]);
       });
+    });
+  });
+
+  describe('get funcs', () => {
+    beforeEach(() => {
+      deck._get = jest.fn();
+    });
+
+    describe('should call this._get()', () => {
+      it('getHand()', () => {
+        deck.getHand();
+
+        expect(deck._get).toHaveBeenCalledWith(2);
+      });
+
+      it('getFlop()', () => {
+        deck.getFlop();
+
+        expect(deck._get).toHaveBeenCalledWith(3);
+      });
+
+      it('getTurn()', () => {
+        deck.getTurn();
+
+        expect(deck._get).toHaveBeenCalledWith();
+      });
+
+      it('getRiver()', () => {
+        deck.getRiver();
+
+        expect(deck._get).toHaveBeenCalledWith();
+      });
+
     });
   });
 

@@ -47,10 +47,10 @@ class Deck extends EventEmitter {
         return cards;
     }
 
-    // getHand = () => this._get(2)
-    // getFlop = () => this._get(3)
-    // getTurn = () => this._get()
-    // getRiver = () => this._get()
+    getHand = () => this._get(2)
+    getFlop = () => this._get(3)
+    getTurn = () => this._get()
+    getRiver = () => this._get()
 
     getDeckInfo = () => deckInfo
 }
