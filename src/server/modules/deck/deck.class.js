@@ -7,29 +7,39 @@ class Deck extends EventEmitter {
 
     constructor() {
         super();
-        // this._newRound();
+        this._newRound();
 
         // this.on('new:round', this._newRound());
         // this.on('shuffle', this._shuffle());
         // this.on('change:deck', this._changeDeck());
     }
 
-    /*_shuffle = () => {
-        for (let i = this.deck.length - 1; i > 0; i++) {
+    _shuffle = () => {
+        for (let i = this.deck.length - 1; i > 0; i--) {
             const buffer = this.deck[i];
             const index = Math.trunc(Math.random() * (i - 1));
 
             this.deck[i] = this.deck[index];
             this.deck[index] = buffer;
         }
-    }*/
+
+        // shuffle for 0 el
+        {
+            const rand = Math.random() * (this.deck.length - 1 -1);
+            const index = Math.trunc(rand) + 1;
+            const buffer = this.deck[index];
+
+            this.deck[index] = this.deck[0];
+            this.deck[0] = buffer;
+        }
+    }
 
     _newRound = () => {
-        /*if (this.played.length) {
+        if (this.played.length) {
             this.deck.push(...this.played);
         }
 
-        this._shuffle();*/
+        this._shuffle();
     }
 
     _changeDeck = () => {

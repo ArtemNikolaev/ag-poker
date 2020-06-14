@@ -8,6 +8,68 @@ describe('Deck class', () => {
     deck = new Deck();
   });
 
+  describe('_shuffle', () => {
+    beforeEach(() => {
+      Math.random = jest.fn(Math.random);
+      Math.trunc = jest.fn(Math.trunc);
+
+      deck.deck = [ 0, 1, 2, 3 ];
+    });
+
+    it('should call Math.random', () => {
+      deck._shuffle();
+
+      expect(Math.random).toHaveBeenCalledTimes(deck.deck.length);
+    });
+
+
+    it('should call Math.trunc', () => {
+      deck._shuffle();
+
+      expect(Math.trunc).toHaveBeenCalledTimes(deck.deck.length);
+    });
+
+    it('should change deck sorting', () => {
+      const test = deck.deck.slice();
+      deck._shuffle();
+
+      expect(deck.deck).not.toEqual(test);
+    });
+  });
+
+  describe('_newRound', () => {
+    describe('when this.played.length', () => {
+      it('=0 ', () => {
+        const test = ['bla'];
+
+        deck.deck = test;
+        deck.played.splice(0);
+
+        deck._newRound();
+
+        expect(deck.deck).toEqual(test);
+      });
+
+      it('!=0', () => {
+        const test = ['bla', 'bla1'];
+        deck.deck = test.slice(0, 1);
+        deck.played = test.slice(1);
+
+        deck._newRound();
+
+        expect(deck.deck).toEqual(test);
+
+      });
+    });
+
+    it('this._shuffle should be called', () => {
+      deck._shuffle = jest.fn();
+
+      deck._newRound();
+      expect(deck._shuffle).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe('_changeDeck', () => {
     beforeEach(() => {
       deck._newRound = jest.fn();
@@ -32,6 +94,9 @@ describe('Deck class', () => {
     });
   });
 
+  /*
+  * todo: rewrite, 2 tests for splice and 1 for all others
+  *  */
   describe('_get()', () => {
     const splice = 'splice';
 
