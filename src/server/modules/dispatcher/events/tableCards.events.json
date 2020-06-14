@@ -1,0 +1,6 @@
+{
+  "clear": "table:cards:clear",
+  "flop": "table:cards:flop",
+  "turn": "table:cards:turn",
+  "river": "table:cards:river"
+}
