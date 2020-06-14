@@ -49,7 +49,6 @@ class Deck extends EventEmitter {
         this._newRound();
     }
 
-
     _get = (amount = 1) => {
         const cards = this.deck.splice(-amount);
         this.played.push(...cards);

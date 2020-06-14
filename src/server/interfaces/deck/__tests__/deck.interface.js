@@ -1,5 +1,5 @@
-const deckClass = require('../deck.class');
-jest.mock('../deck.class');
+const deckClass = require('../../../modules/deck/deck.class');
+jest.mock('../../../modules/deck/deck.class');
 
 const deckInstance = require('../deck.interface');
 
