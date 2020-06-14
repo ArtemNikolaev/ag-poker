@@ -9,9 +9,9 @@ class Deck extends EventEmitter {
         super();
         this._newRound();
 
-        // this.on('new:round', this._newRound());
-        // this.on('shuffle', this._shuffle());
-        // this.on('change:deck', this._changeDeck());
+        this.on('new:round', this._newRound);
+        this.on('shuffle', this._shuffle);
+        this.on('change:deck', this._changeDeck);
     }
 
     _shuffle = () => {

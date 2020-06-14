@@ -1,11 +1,20 @@
 const Deck = require('../deck.class');
 const deckInfo = require('../deck.json');
 
+jest.mock('events');
+const EventEmitter = require('events');
+
 describe('Deck class', () => {
   let deck;
 
   beforeEach(() => {
     deck = new Deck();
+  });
+
+  describe('constructor', () => {
+    it('should call this.on', () => {
+      expect(deck.on).toHaveBeenCalledTimes(3);
+    });
   });
 
   describe('_shuffle', () => {
@@ -98,55 +107,42 @@ describe('Deck class', () => {
   * todo: rewrite, 2 tests for splice and 1 for all others
   *  */
   describe('_get()', () => {
-    const splice = 'splice';
+    // called with nothing
+    // called with param
+    // push to played
+    // return what pushed
+
+    const testData = [1];
+    let splice;
 
     beforeEach(() => {
-      deck.deck = [1, 2];
+      splice = jest.fn(() => testData);
+      deck.deck = testData.slice();
+      deck.deck.splice = splice;
     });
 
-    describe('by default', () => {
-      it('should call splice with -1', () => {
-        deck.deck = {
-          splice: jest.fn(() => splice),
-        };
-        deck._get();
+    it('should call splice with -1 if no param', () => {
+      deck._get();
 
-        expect(deck.deck.splice).toHaveBeenCalledWith(-1);
-      });
-
-      it('played should be correct', () => {
-        deck._get();
-
-        expect(deck.played).toEqual([2]);
-      });
-
-      it('played should be correct', () => {
-        expect(deck._get()).toEqual([2]);
-      });
+      expect(splice).toHaveBeenCalledWith(-1);
     });
 
-    describe('with n', () => {
-      const n = 2;
+    it('should call splice with -n with n param', () => {
+      const n = 5
+      deck._get(n);
 
-      it('with n argument', () => {
-        deck.deck = {
-          splice: jest.fn(() => splice),
-        };
-        deck._get(n);
-
-        expect(deck.deck.splice).toHaveBeenCalledWith(-n);
-      });
-
-      it('not by default', () => {
-        deck._get(n);
-
-        expect(deck.played).toEqual([1, 2]);
-      });
-
-      it('played should be correct', () => {
-        expect(deck._get(n)).toEqual([1, 2]);
-      });
+      expect(splice).toHaveBeenCalledWith(-n);
     });
+
+    it('should push spliced data to played', () => {
+      deck._get();
+
+      expect(deck.played).toEqual(testData);
+    });
+
+    it('should return spliced cards', () => {
+      expect(deck._get()).toEqual(testData);
+    })
   });
 
   describe('get funcs', () => {
