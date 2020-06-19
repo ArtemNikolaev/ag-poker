@@ -32,6 +32,8 @@ class Deck extends EventEmitter {
             this.deck[index] = this.deck[0];
             this.deck[0] = buffer;
         }
+
+        this.emit('shuffle');
     }
 
     _newRound = () => {
@@ -39,6 +41,7 @@ class Deck extends EventEmitter {
             this.deck.push(...this.played);
         }
 
+        this.emit('new:round');
         this._shuffle();
     }
 
@@ -46,6 +49,7 @@ class Deck extends EventEmitter {
         this.deck = deckInfo.cards;
         this.played.splice(0);
 
+        this.emit('change:deck');
         this._newRound();
     }
 
@@ -57,9 +61,9 @@ class Deck extends EventEmitter {
     }
 
     getHand = () => this._get(2)
-    getFlop = () => this._get(3)
-    getTurn = () => this._get()
-    getRiver = () => this._get()
+    getFlop = () => this.emit('flop', this._get(3))
+    getTurn = () => this.emit('turn', this._get())
+    getRiver = () => this.emit('river', this._get())
 
     getDeckInfo = () => deckInfo
 }
