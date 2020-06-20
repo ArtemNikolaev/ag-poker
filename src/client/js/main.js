@@ -11,3 +11,5 @@ socket.on('status:spectator', () => {
 socket.on('players', (data) => {
   console.log(JSON.stringify(data, null, 4));
 });
+
+socket.on('config:update', console.log);

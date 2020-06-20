@@ -1,7 +1,5 @@
 const EventEmitter = require('events');
 
-const logger = require('../services/logger');
-const store = require('./players');
 const roundLifeCycle = require('./roundLifeCycle');
 
 /*
@@ -26,12 +24,16 @@ const roundLifeCycle = require('./roundLifeCycle');
 * next:round
 * */
 
-class Game extends EventEmitter {
+class GameLifeCycle extends EventEmitter {
   constructor() {
     super();
     this.nextRound();
 
     this.on('next:move', this.nextMove);
+  }
+
+  newConnection(id) {
+
   }
 
   nextMove = () => {
@@ -44,4 +46,4 @@ class Game extends EventEmitter {
   }
 }
 
-module.exports = new Game();
+module.exports = new GameLifeCycle();
