@@ -7,7 +7,22 @@ class DispatcherClass extends EventEmitter {
 
     constructor() {
         super();
+        this._playersEvents();
+        this._gameEvents();
 
+
+        gameStore.subscribe(this._gameStoreSubscription);
+    }
+
+    _gameStoreSubscription = () => {
+        logger.silly('dispatcher -> gameStoreSubscription');
+
+        const curr = gameStore.getState();
+
+        this.emit('update', curr);
+    }
+
+    _playersEvents() {
         this.on(
             'add:player',
             id => {
@@ -43,16 +58,10 @@ class DispatcherClass extends EventEmitter {
                 })
             },
         )
-
-        gameStore.subscribe(this.gameStoreSubscription);
     }
 
-    gameStoreSubscription = () => {
-        logger.silly('dispatcher -> gameStoreSubscription');
+    _gameEvents() {
 
-        const curr = gameStore.getState();
-
-        this.emit('config:update', curr);
     }
 }
 

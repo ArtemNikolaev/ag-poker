@@ -3,8 +3,6 @@ const socketio = require('socket.io');
 const dispatcher = require('./interfaces/dispatcher/dispatcher.interface');
 
 const logger = require('./services/logger');
-const store = require('./modules/players');
-const game = require('./modules/gameLifeCycle');
 
 module.exports = function createSocket(httpServer) {
   const io = socketio(httpServer);
@@ -27,17 +25,9 @@ module.exports = function createSocket(httpServer) {
     });
   });
 
-  dispatcher.on('config:update', data => {
+  dispatcher.on('update', data => {
     logger.silly(`socket->dispatcher.on->config:update:\n${JSON.stringify(data, null, 4)}`);
 
-    io.emit('config:update', data);
+    io.emit('update', data);
   });
-
-  store.on('new:player', (id) => {
-    io.to(id).emit('status:player', id);
-  });
-
-  store.on('new:spectator', (id) => io.to(id).emit('status:spectator'));
-
-  game.on('players', (players) => io.emit('players', players));
 }

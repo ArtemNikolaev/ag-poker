@@ -4,6 +4,7 @@ let count = 0;
 
 function addPlayer(state, payload) {
     logger.silly(`players.reducer->addPlayer: ${ payload.id }`);
+
     const id = payload.id;
 
     state.push({
@@ -15,7 +16,7 @@ function addPlayer(state, payload) {
 }
 
 function removePlayer(state, { id }) {
-    logger.silly(`players.reducer->removePlayer: ${ payload.id }`);
+    logger.silly(`players.reducer->removePlayer: ${ id }`);
 
     let index = -1;
     state.some((el, i) => {
