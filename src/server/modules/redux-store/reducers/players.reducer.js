@@ -1,12 +1,14 @@
 const logger = require('../../../services/logger');
 
+let count = 0;
+
 function addPlayer(state, payload) {
     logger.silly(`players.reducer->addPlayer: ${ payload.id }`);
     const id = payload.id;
 
     state.push({
         id,
-        name: `Player ${state.length + 1}`,
+        name: `Player ${ ++count }`,
     });
 
     return state;
@@ -16,14 +18,14 @@ function removePlayer(state, payload) {
     logger.silly(`players.reducer->removePlayer: ${ payload.id }`);
     const id = payload.id;
 
-    let index;
+    let index = -1;
     state.some((el, i) => {
         if (el.id === id) {
             index = i;
         }
     });
 
-    if (index !== undefined) {
+    if (index !== -1) {
         state.splice(index, 1);
     }
 

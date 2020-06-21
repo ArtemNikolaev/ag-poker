@@ -12,4 +12,6 @@ socket.on('players', (data) => {
   console.log(JSON.stringify(data, null, 4));
 });
 
-socket.on('config:update', console.log);
+socket.on('config:update', data => {
+  console.log(JSON.stringify(data, null, 4));
+});
