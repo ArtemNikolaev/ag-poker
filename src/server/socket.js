@@ -23,6 +23,8 @@ module.exports = function createSocket(httpServer) {
 
       dispatcher.emit('remove:player', socket.id);
     });
+
+    socket.on('begin:game', () => dispatcher.beginGame())
   });
 
   dispatcher.on('update', data => {
