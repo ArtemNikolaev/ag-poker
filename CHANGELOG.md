@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - begin life cycle for round
 - deck functionality
+- add/remove/update user logic
 
 ## [v0.5.0] - 2020-06-03
 ### Added

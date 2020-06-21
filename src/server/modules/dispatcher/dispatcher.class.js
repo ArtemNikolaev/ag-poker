@@ -32,6 +32,18 @@ class DispatcherClass extends EventEmitter {
             }
         );
 
+        this.on(
+            'update:player',
+            payload => {
+                logger.silly(`rename player: ${ JSON.stringify(payload, null, 4) }`);
+
+                gameStore.dispatch({
+                    type: 'update:player',
+                    payload,
+                })
+            },
+        )
+
         gameStore.subscribe(this.gameStoreSubscription);
     }
 

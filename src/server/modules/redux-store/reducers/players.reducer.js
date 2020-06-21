@@ -14,9 +14,8 @@ function addPlayer(state, payload) {
     return state;
 }
 
-function removePlayer(state, payload) {
+function removePlayer(state, { id }) {
     logger.silly(`players.reducer->removePlayer: ${ payload.id }`);
-    const id = payload.id;
 
     let index = -1;
     state.some((el, i) => {
@@ -32,12 +31,30 @@ function removePlayer(state, payload) {
     return state;
 }
 
+function updatePlayer(players, { id, name }) {
+    logger.silly(`update player '${id}' to '${name}'`);
+
+    players.some((el, index, array) => {
+        if (el.id === id) {
+            array[index].name = name;
+
+            return true;
+        }
+
+        return false;
+    });
+
+    return players;
+}
+
 module.exports = (state = [], action) => {
-    console.log({ state, action });
+    logger.silly(`players.reducer: ${ action.type }`);
 
     switch (action.type) {
         case 'add:player':
             return addPlayer(state, action.payload);
+        case 'update:player':
+            return updatePlayer(state, action.payload);
         case 'remove:player':
             return removePlayer(state, action.payload);
         default:

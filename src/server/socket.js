@@ -14,6 +14,12 @@ module.exports = function createSocket(httpServer) {
 
     dispatcher.emit('add:player', socket.id);
 
+    socket.on('update:player', (name) => {
+      logger.debug(`rename:player:${socket.id}:${name}`);
+
+      dispatcher.emit('update:player', { id: socket.id, name });
+    });
+
     socket.on('disconnect', (reason) => {
       logger.debug(`${socket.id} disconnected because of: ${reason}`);
 
