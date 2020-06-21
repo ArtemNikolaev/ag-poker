@@ -1,9 +1,12 @@
-const dispatcher = require('../interfaces/dispatcher');
+const logger = require('../services/logger');
 const store = require('./redux-store/gameStore');
 
 class GameLifeCycle {
-  constructor() {
+  beginGame = () => {
+    logger.silly('GameLifeCycle -> beginGame');
+    const isGameReady = store.getState().config.isGameReady;
 
+    if (!isGameReady) { logger.error('GameLifeCycle -> beginGame: !isGameReady'); }
   }
 }
 

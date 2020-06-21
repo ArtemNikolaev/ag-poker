@@ -1,6 +1,7 @@
 const EventEmitter = require('events');
 const logger = require('../../services/logger');
 const gameStore = require('../redux-store/gameStore');
+const gameLifeCycle = require('../../modules/gameLifeCycle');
 
 class DispatcherClass extends EventEmitter {
     gameStorePreviousVal = gameStore.getState();
@@ -8,8 +9,6 @@ class DispatcherClass extends EventEmitter {
     constructor() {
         super();
         this._playersEvents();
-        this._gameEvents();
-
 
         gameStore.subscribe(this._gameStoreSubscription);
     }
@@ -60,8 +59,10 @@ class DispatcherClass extends EventEmitter {
         )
     }
 
-    _gameEvents() {
+    beginGame() {
+        logger.silly('dispatcher -> begin:game');
 
+        gameLifeCycle.beginGame();
     }
 }
 
