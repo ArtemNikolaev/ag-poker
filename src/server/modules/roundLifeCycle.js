@@ -13,7 +13,9 @@ function * roundLifeCycle() {
   yield steps.river();
   yield steps.trade();
 
-  return steps.endRound();
+  yield steps.endRound();
+
+  return 1;
 }
 
 module.exports = roundLifeCycle;

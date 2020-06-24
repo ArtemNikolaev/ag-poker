@@ -4,6 +4,9 @@ const createSocket = require("./socket");
 const logger = require('./services/logger');
 const ifaces = require('os').networkInterfaces();
 
+global.dispatcher = require('./interfaces/dispatcher/dispatcher.interface');
+global.logger = require('./services/logger');
+
 // todo: move to config
 const port = 3000;
 const host = '0.0.0.0';

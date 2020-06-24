@@ -1,12 +1,24 @@
-const logger = require('../services/logger');
-const store = require('./redux-store/gameStore');
+const roundLifeCycle = require('../modules/roundLifeCycle');
 
 class GameLifeCycle {
-  beginGame = () => {
-    logger.silly('GameLifeCycle -> beginGame');
-    const isGameReady = store.getState().config.isGameReady;
+  game;
 
-    if (!isGameReady) { logger.error('GameLifeCycle -> beginGame: !isGameReady'); }
+  beginGame() {
+    logger.silly('gameLifeCycle -> begin:game');
+
+    this.game = roundLifeCycle();
+    this.nextMove();
+  }
+
+  nextMove = () => {
+    logger.silly('GameLifyCycle -> nextMove()');
+    // if (this.roundDone) {
+    //   return this.beginGame();
+    // }
+
+    const done = this.game.next().done;
+
+    if (done) dispatcher.emit('round:done');
   }
 }
 

@@ -1,7 +1,7 @@
 const EventEmitter = require('events');
 const logger = require('../../services/logger');
 const gameStore = require('../redux-store/gameStore');
-const gameLifeCycle = require('../../modules/gameLifeCycle');
+const gameLifeCycle = require('../gameLifeCycle');
 
 class DispatcherClass extends EventEmitter {
     gameStorePreviousVal = gameStore.getState();
@@ -11,6 +11,9 @@ class DispatcherClass extends EventEmitter {
         this._playersEvents();
 
         gameStore.subscribe(this._gameStoreSubscription);
+
+        this.on('move:done', () => setTimeout(gameLifeCycle.nextMove));
+        this.on('round:done', () => logger.silly('dispatcher:round:done'));
     }
 
     _gameStoreSubscription = () => {
