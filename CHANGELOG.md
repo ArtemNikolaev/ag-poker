@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - connect svelte
 - playerName component
 - playerList component
+- reducer for chat
 
 ## [v0.5.0] - 2020-06-03
 ### Added

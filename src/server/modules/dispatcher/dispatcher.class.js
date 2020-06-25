@@ -14,6 +14,17 @@ class DispatcherClass extends EventEmitter {
 
         this.on('move:done', () => setTimeout(gameLifeCycle.nextMove));
         this.on('round:done', () => logger.silly('dispatcher:round:done'));
+        this.on('chat:message', ({ id, name, msg }) => {
+          if (!name) {
+            const curr = gameStore.getState();
+            name = curr.players.filter(player => player.id === id)[0].name;
+          }
+
+          gameStore.dispatch({
+            type: 'chat:message',
+            payload: { name, msg },
+          })
+        });
     }
 
     _gameStoreSubscription = () => {

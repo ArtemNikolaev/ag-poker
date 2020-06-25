@@ -16,6 +16,10 @@ module.exports = function createSocket(httpServer) {
       global.dispatcher.emit('update:player', { id: socket.id, name });
     });
 
+    socket.on('chat:message', (msg) => {
+      dispatcher.emit('chat:message', {id: socket.id, msg});
+    });
+
     socket.on('disconnect', (reason) => {
       logger.debug(`${socket.id} disconnected because of: ${reason}`);
 
