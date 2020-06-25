@@ -1,12 +1,10 @@
 const express = require("express");
-const data = require("./data.model");
-const { config, error404, game } = require("./pages");
+const { error404 } = require("./pages");
 
 module.exports = async function createApp() {
   const app = express();
 
-  app.use('/_',express.static('src/client'));
-  app.get('*', data.isGameExist() ? game : config);
+  app.use('/',express.static('./public'));
   app.all('*', error404);
 
   return app;
