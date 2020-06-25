@@ -3,6 +3,7 @@
 	import PlayerList from './PlayerList.svelte';
 	import Chat from './Chat.svelte';
 	import ChatList from './ChatList.svelte';
+	import BeginGameButton from './BeginGameButton.svelte';
 
 	export let socket;
 </script>
@@ -12,6 +13,7 @@
     <PlayerList socket={socket} />
     <Chat socket={socket} />
     <ChatList socket={socket} />
+    <BeginGameButton socket={socket} />
 </main>
 
 <style>

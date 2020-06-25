@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - reducer for chat
 - chat component
 - chat-list component
+- begin game component
 
 ## [v0.5.0] - 2020-06-03
 ### Added
