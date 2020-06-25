@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - playerName component
 - playerList component
 - reducer for chat
+- chat component
 
 ## [v0.5.0] - 2020-06-03
 ### Added

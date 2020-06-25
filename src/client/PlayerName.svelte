@@ -26,7 +26,7 @@
 	<form on:submit|preventDefault={changeName}>
 	    <label for="name">Player Name</label>
     	<input type="text" name="name" bind:value={name} />
-    	<input type=submit />
+    	<input type=submit value="Rename" />
     </form>
 </main>
 

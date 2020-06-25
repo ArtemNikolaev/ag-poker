@@ -1,13 +1,15 @@
 <script>
 	import PlayerName from './PlayerName.svelte';
 	import PlayerList from './PlayerList.svelte';
+	import Chat from './Chat.svelte';
 
 	export let socket;
 </script>
 
 <main>
-    <PlayerName socket={socket}/>
-    <PlayerList socket={socket}/>
+    <PlayerName socket={socket} />
+    <PlayerList socket={socket} />
+    <Chat socket={socket} />
 </main>
 
 <style>
