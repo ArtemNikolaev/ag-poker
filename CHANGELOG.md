@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - deck functionality
 - add/remove/update user logic
 - connect svelte
-- playerName component functionality
+- playerName component
+- playerList component
 
 ## [v0.5.0] - 2020-06-03
 ### Added

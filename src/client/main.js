@@ -1,10 +1,10 @@
-import PlayerName from './PlayerName.svelte';
+import App from './App.svelte';
 
-const playerName = new PlayerName({
-	target: document.querySelector('section#player-name'),
+const app = new App({
+	target: document.body,
 	props: {
 		socket,
 	}
 });
 
-export default playerName;
+export default app;
