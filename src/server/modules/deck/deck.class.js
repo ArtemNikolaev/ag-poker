@@ -61,9 +61,9 @@ class Deck extends EventEmitter {
     }
 
     getHand = () => this._get(2)
-    getFlop = () => this.emit('flop', this._get(3))
-    getTurn = () => this.emit('turn', this._get())
-    getRiver = () => this.emit('river', this._get())
+    getFlop = () => this._get(3)
+    getTurn = () => this._get()
+    getRiver = () => this._get()
 
     getDeckInfo = () => deckInfo
 }

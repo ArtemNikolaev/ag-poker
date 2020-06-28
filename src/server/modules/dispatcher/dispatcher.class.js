@@ -25,6 +25,27 @@ class DispatcherClass extends EventEmitter {
             payload: { name, msg },
           })
         });
+
+        this.on('round:set:flop', (flop) => {
+            gameStore.dispatch({
+                type: 'round:set:flop',
+                payload: { flop },
+            })
+        });
+
+        this.on('round:set:turn', (turn) => {
+            gameStore.dispatch({
+                type: 'round:set:turn',
+                payload: { turn },
+            })
+        });
+
+        this.on('round:set:river', (river) => {
+            gameStore.dispatch({
+                type: 'round:set:river',
+                payload: { river },
+            })
+        });
     }
 
     _gameStoreSubscription = () => {
